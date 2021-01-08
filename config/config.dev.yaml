@@ -1,0 +1,30 @@
+env: dev
+http:
+  port: 8188
+
+cache:
+  dialect: redis
+  uri: redis://localhost:6379/
+  prefix: "ddd-case:a3d41615:"
+
+database:
+  dialect: mysql
+  source: root:123456@tcp(localhost:3306)/ddd?parseTime=true&&loc=Local
+
+logger:
+  level: "info"
+  encoding: "json"
+  format: "log_format"
+  disable_timestamp: true
+  development: true
+  disable_caller: false
+  disable_stacktrace: true
+  disable_error_verbose: false
+  log_file:
+    file_name: "logs/ddd-case.log_json"
+    max_size: 1
+    max_days: 30
+    max_backups: 10
+
+log_format:
+  app: "ddd-case"
